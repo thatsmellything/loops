@@ -31,6 +31,8 @@ public class Swim
 		this.distance = distance;
 	}
 	
+	//I am very confused on ow this is supposed to wrok?
+	
 	public String toString()
 	{
 		String description = "the distance is " + distance;
