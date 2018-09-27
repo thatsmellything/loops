@@ -57,7 +57,10 @@ public class loopscont
 			{
 				JOptionPane.showMessageDialog(null, "You either pressed cancel, the x, or typed nothing >:(");	
 			}
-			while (!validDouble(userSwimDistance))
+			
+			//this will make it so that if the answer is nothing aka null or if the answer isnt what we want it will
+			//continue to ask the question and it wont crash your system
+			while (userSwimDistance == null && !validDouble(userSwimDistance))
 			{
 				userSwimDistance = JOptionPane.showInputDialog(null, "No! type in a valid number!");
 			}
@@ -78,7 +81,7 @@ public class loopscont
 			{
 				JOptionPane.showMessageDialog(null, "You either pressed cancel, the x, or typed nothing >:(");	
 			}
-			while (!validDouble(userTime))
+			while (userTime == null && !validDouble(userTime))
 			{
 				userTime = JOptionPane.showInputDialog(null, "Nah man thats not a time");
 			}
