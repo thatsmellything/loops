@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import model.Swim;
 public class loopscont
 {
+	private Swim userSwim;
 
 	public void Start()
 	{
@@ -14,6 +15,7 @@ public class loopscont
 		// loop and you will be a sad boi
 		private void loops()
 		{
+			//While loop
 			int count = 0;
 			boolean isDone = false;
 			while (!isDone)
@@ -37,18 +39,41 @@ public class loopscont
 			{
 				JOptionPane.showInputDialog(null, "The loop value is " + loop);
 			}
+			
+			
 		}
 		
 		//loops with user input
-		private void askUser()
+		public void askUser()
 		{
-			String response = JOptionPane.showInputDialog(null, "What is the distance?");
+			//Name
 			Swim userSwim = new Swim();
-			while (!validDouble(response))
+			String userName = JOptionPane.showInputDialog(null, "What is your name?");
+			userSwim.setName(userName);
+
+			//Distance
+			String userSwimDistance = JOptionPane.showInputDialog(null, "What is the distance you swam today?");
+			while (!validDouble(userSwimDistance))
 			{
-				response = JOptionPane.showInputDialog(null, "No! type in a valid number!");
+				userSwimDistance = JOptionPane.showInputDialog(null, "No! type in a valid number!");
 			}
-			userSwim.setDistance(Double.parseDouble(response));
+			userSwim.setDistance(Double.parseDouble(userSwimDistance));
+		
+			//Stroke
+			String userStroke = JOptionPane.showInputDialog(null, "What is your favorite stroke?");
+			userSwim.setStroke(userStroke);
+			
+			
+			//Fastest time in favorite stroke
+			String userTime = JOptionPane.showInputDialog(null, "What is your fastest time in your favorite stroke?");
+			while (!validDouble(userTime))
+			{
+				userTime = JOptionPane.showInputDialog(null, "Nah man thats not a time");
+			}
+			userSwim.setTime(Double.parseDouble(userTime));
+			
+			
+			JOptionPane.showMessageDialog(null, userSwim);
 		}
 	
 		//--------Catch ERRORS------------
@@ -66,7 +91,7 @@ public class loopscont
 					
 					catch(NumberFormatException error)
 					{
-						System.out.println("Type in a valid number boi");
+						JOptionPane.showMessageDialog(null, "You should type an actual number value!!!");
 					}
 					return isValid;
 					//always put return at the bottom for the boolean or else you get red death
@@ -83,9 +108,23 @@ public class loopscont
 					}
 					catch(NumberFormatException error)
 					{
-						System.out.println("Only floating values are allowed for input");
+						JOptionPane.showMessageDialog(null, "You should type a double value aka a decimal point boi");
 					}
 					
+					return isValid;
+				}
+				public boolean validBool(String maybeBool)
+				{
+					boolean isValid = false;
+					try
+					{
+						Boolean.parseBoolean(maybeBool);
+						isValid = true;
+					}
+					catch(IllegalArgumentException error)
+					{
+						JOptionPane.showMessageDialog(null, "Type in a boolean value IE treu or false ");
+					}
 					return isValid;
 				}
 				
