@@ -46,13 +46,17 @@ public class loopscont
 		//loops with user input
 		public void askUser()
 		{
-			//Name
 			Swim userSwim = new Swim();
+			//Name
 			String userName = JOptionPane.showInputDialog(null, "What is your name?");
 			userSwim.setName(userName);
 
 			//Distance
 			String userSwimDistance = JOptionPane.showInputDialog(null, "What is the distance you swam today?");
+			if (userSwimDistance == null || userSwimDistance.equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "You either pressed cancel, the x, or typed nothing >:(");	
+			}
 			while (!validDouble(userSwimDistance))
 			{
 				userSwimDistance = JOptionPane.showInputDialog(null, "No! type in a valid number!");
@@ -62,10 +66,18 @@ public class loopscont
 			//Stroke
 			String userStroke = JOptionPane.showInputDialog(null, "What is your favorite stroke?");
 			userSwim.setStroke(userStroke);
+			if (userStroke == null || userStroke.equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "You either pressed cancel, the x, or typed nothing >:(");	
+			}
 			
 			
 			//Fastest time in favorite stroke
 			String userTime = JOptionPane.showInputDialog(null, "What is your fastest time in your favorite stroke?");
+			if (userTime == null || userTime.equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "You either pressed cancel, the x, or typed nothing >:(");	
+			}
 			while (!validDouble(userTime))
 			{
 				userTime = JOptionPane.showInputDialog(null, "Nah man thats not a time");
@@ -77,14 +89,14 @@ public class loopscont
 		}
 	
 		//--------Catch ERRORS------------
-				public boolean validInt(String example)
+				public boolean validInt(String maybeInt)
 				{
 					boolean isValid = false;
 					
 					//Immediately assign create and make a value equal to something. then return that
 					try
 					{
-						Integer.parseInt(example);
+						Integer.parseInt(maybeInt);
 						isValid = true;
 						
 					}
@@ -96,14 +108,13 @@ public class loopscont
 					return isValid;
 					//always put return at the bottom for the boolean or else you get red death
 				}
-				
-				public boolean validDouble(String example)
+				public boolean validDouble(String maybeDouble)
 				{
 					boolean isValid = false;
 					
 					try
 					{
-						Double.parseDouble(example);
+						Double.parseDouble(maybeDouble);
 						isValid = true;
 					}
 					catch(NumberFormatException error)
