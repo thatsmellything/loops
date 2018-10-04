@@ -2,6 +2,7 @@ package controller;
 
 import javax.swing.JOptionPane;
 import model.Swim;
+import java.util.ArrayList;
 public class loopscont
 {
 	private Swim userSwim;
@@ -9,7 +10,8 @@ public class loopscont
 	public void Start()
 	{
 	//	loops();
-		askUser();
+	//	askUser();
+		practice();
 	}
 	//While loops need a predefined variable and that variable must change at some point otherwise it will be infinite
 		// loop and you will be a sad boi
@@ -91,6 +93,30 @@ public class loopscont
 			JOptionPane.showMessageDialog(null, userSwim);
 		}
 	
+		private void lotsofswim()
+		{
+			//Local variables are only visible in the method they are defined in
+			//they only have scope to that method
+			ArrayList<Swim> mySwims = new ArrayList<Swim>();
+			
+			Swim sampleSwim = new Swim();
+			Swim otherSwim = new Swim();
+			
+			//You can duplicate the things inside of the list
+			mySwims.add(sampleSwim);
+			mySwims.add(sampleSwim);
+			mySwims.add(otherSwim);
+			
+			for (int index=0; index<mySwims.size(); index += 1)
+			{
+				Swim currentSwim = mySwims.get(index);
+				currentSwim.setDistance(index * currentSwim.getDistance());
+			}
+			for (Swim current: mySwims)
+			{
+				JOptionPane.showMessageDialog(null, "The run is named:"+ current.getName());
+			}
+		}
 		//--------Catch ERRORS------------
 				public boolean validInt(String maybeInt)
 				{
@@ -142,4 +168,42 @@ public class loopscont
 					return isValid;
 				}
 				
+
+
+
+
+
+public void practice()
+{
+	//Do while loop that will add 1 to a variable named bam and print it while x is less
+	//than ten. But every time it goes through the loop it adds one to x
+	int x = 0;
+	int bam = 0;
+	do {
+		System.out.println("x is a small boy " + bam);
+		bam = bam + 1;	
+		x=x+1;
+	} while (x<10);
+	
+	//creates variable botta equal to 0. if botta is less than bing, it prints
+	//a sentence out along with the curent value of botta ntil botta is equal to bing
+	int bing = 20;
+	for (int botta = 0; botta<bing; botta+=1)
+	{
+		System.out.println("This will print 20 tumes and this is number " + botta);
+	}
 }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
