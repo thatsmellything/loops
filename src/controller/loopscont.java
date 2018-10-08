@@ -11,6 +11,7 @@ public class loopscont
 	{
 	//	loops();
 	//	askUser();
+		lotsofswim();
 		practice();
 	}
 	//While loops need a predefined variable and that variable must change at some point otherwise it will be infinite
@@ -99,6 +100,9 @@ public class loopscont
 			//they only have scope to that method
 			ArrayList<Swim> mySwims = new ArrayList<Swim>();
 			
+			ArrayList<Integer> myNums = new ArrayList<Integer>();
+			//have to use a wrapper class to hold primative in a list IE Double Integer
+			
 			Swim sampleSwim = new Swim();
 			Swim otherSwim = new Swim();
 			
@@ -106,15 +110,30 @@ public class loopscont
 			mySwims.add(sampleSwim);
 			mySwims.add(sampleSwim);
 			mySwims.add(otherSwim);
-			
-			for (int index=0; index<mySwims.size(); index += 1)
+			//Standard forward loop
+			//If you want to remove something then you should go backwards aka index -=1
+			//Going backwards prevents the list from bumping up say number 4 to number 3 and missing it in the
+			//checking process. f you call add then no data is lost, everything either moves to the right or
+			//is placed in the back by default
+			// .set changes the data in the value
+			for (int index = 0; index < mySwims.size(); index += 1)
 			{
+				//Good for display or minor changes
+				JOptionPane.showMessageDialog(null, mySwims.get(index).getName());
+				
+				//Good for remove, replace, change multiple values
 				Swim currentSwim = mySwims.get(index);
-				currentSwim.setDistance(index * currentSwim.getDistance());
+				currentSwim.setName("This new name is " +  index + " swim");
+				currentSwim.setDistance(index * (int) (Math.random()*500));
+			}
+			//THIS IS HOW TO GO THROUGH A LIST BACKWARDS!
+			for (int index = mySwims.size() -1; index >= 0; index -= 1)
+			{
+				
 			}
 			for (Swim current: mySwims)
 			{
-				JOptionPane.showMessageDialog(null, "The run is named:"+ current.getName());
+				JOptionPane.showMessageDialog(null, "The swim is named: "+ current.getName());
 			}
 		}
 		//--------Catch ERRORS------------
