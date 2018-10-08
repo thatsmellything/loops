@@ -219,7 +219,7 @@ public void practicelists()
 	practice.add("Jensen");
 	practice.add("Cody");
 	practice.add("Bob");
-	for (int index = 0; index < practice.size(); index +=1)
+	for (int index = 0; index < practice.size(); index ++)
 	{
 		
 		JOptionPane.showMessageDialog(null, "My name is " + practice.get(index));
