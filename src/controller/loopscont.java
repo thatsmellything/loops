@@ -213,7 +213,23 @@ public void practice()
 	}
 }
 
-
+public void practicelists()
+{
+	ArrayList<String> practice = new ArrayList<String>();
+	practice.add("Jensen");
+	practice.add("Cody");
+	practice.add("Bob");
+	for (int index = 0; index < practice.size(); index +=1)
+	{
+		
+		JOptionPane.showMessageDialog(null, "My name is " + practice.get(index));
+	}
+	for (int index = 0;  index < practice.size(); index += 1)
+	{
+		practice.remove(2);
+	}
+	
+}
 
 }
 
