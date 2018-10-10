@@ -216,7 +216,9 @@ public void practice()
 public void practicelists()
 {
 	ArrayList<String> practice = new ArrayList<String>();
+	//Creates a new list that outputs string. The list name is practice
 	practice.add("Jensen");
+	//This .add thing adds a new value to the list at the end of the list. Lists index starts at 0
 	practice.add("Cody");
 	practice.add("Bob");
 	for (int index = 0; index < practice.size(); index ++)
