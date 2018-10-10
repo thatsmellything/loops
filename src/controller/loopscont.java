@@ -222,6 +222,7 @@ public void practicelists()
 	practice.add("Cody");
 	practice.add("Bob");
 	for (int index = 0; index < practice.size(); index ++)
+		//.size measures how big the list is and then gives you a value back aka how big is the list
 	{
 		
 		JOptionPane.showMessageDialog(null, "My name is " + practice.get(index));
@@ -229,6 +230,9 @@ public void practicelists()
 	for (int index = 0;  index < practice.size(); index += 1)
 	{
 		practice.remove(2);
+		// .remove removes an item from the list at a certain index and then the other indexes adjust
+		//to fill in that gap. So when you remove something you can use it for later or for something else
+		
 	}
 	
 }
